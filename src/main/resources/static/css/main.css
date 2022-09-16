@@ -1,0 +1,44 @@
+.flex-container {
+	display: flex;
+	flex-direction: column;
+	padding-left: 30%;
+	padding-right: 30%;
+	justify-content: center;
+	flex-direction: column;
+	color:white;
+}
+
+body {
+	background-color: #00030d;
+	text-align: center;
+}
+.teste{
+}
+.table{
+	align-items: center;
+	width: 100%;
+}
+
+h4{
+	color:white;
+}
+.form-1 {
+	text-align: center;
+}
+
+.corpo {
+flex-direction: column;
+	justify-content: center;
+	}
+.ui-datepicker-calendar {
+       display: none;
+    }
+    .ui-datepicker-month {
+       display: none;
+    }
+    .ui-datepicker-prev{
+       display: none;
+    }
+    .ui-datepicker-next{
+       display: none;
+    }
