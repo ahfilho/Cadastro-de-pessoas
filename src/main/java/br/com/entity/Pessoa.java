@@ -18,22 +18,27 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Pessoa {
 
+	//TODO validar e formatar cpf
+	//TODO consertar a captura da data
+    //TODO 	validação na interface
+    //TODO validação na API
+    //TODO validação no banco
 
-	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotNull
-	private String nome;
+    @NotNull
+    private String nome;
 
-	@NotNull
-	private String cpf;
+    @NotNull
+    private String cpf;
 
-	//@NotNull
-	//private Date dataNascimento;
+    //@NotNull
+    //private Date dataNascimento;
 
-	@NotNull
-	private String email;
+    @NotNull
+    private String email;
 
 
 }
