@@ -67,9 +67,7 @@
                             <td th:text="${pessoa.nome}"></td>
                             <td th:text="${pessoa.cpf}"></td>
                             <td th:text="${pessoa.email}"></td>
-                            <!--                            <td th:text="${pessoa.dataNascimento}"></td>
--->
-                            <td th:text="${year}"></td>
+                            <td th:text="${pessoa.dataNascimento}"></td>
 
                             <td><a th:href="@{/pessoas/edit/{id}(id=${pessoa.id})}"
                                    class="btn btn-outline-primary my-2 my-sm-0"><i

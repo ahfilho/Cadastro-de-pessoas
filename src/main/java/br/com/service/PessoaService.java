@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -18,7 +19,17 @@ public class PessoaService {
     public void adc(Pessoa pessoa) {
         this.pessoaRepository.save(pessoa);
     }
-    public List<Pessoa> listarTodos(){
+
+    public List<Pessoa> listarTodos() {
         return this.pessoaRepository.findAll();
     }
+
+    public Optional<Pessoa> getCpf(String cpf) {
+        return this.pessoaRepository.findByCpf(cpf);
+    }
 }
+
+
+
+
+

@@ -14,7 +14,7 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
 
 	@Query("select p from Pessoa p where p.cpf like %?1% group by Pessoas")
-	public Optional<Pessoa> findByCountryCode(String cpf);
+	public Optional<Pessoa> findByCpf(String cpf);
 
 
 }

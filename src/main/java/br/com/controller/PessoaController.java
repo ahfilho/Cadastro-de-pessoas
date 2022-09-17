@@ -1,21 +1,24 @@
 package br.com.controller;
 
-import java.util.List;
-import java.util.Optional;
-
+import br.com.entity.Pessoa;
+import br.com.repository.PessoaRepository;
 import br.com.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import br.com.entity.Pessoa;
-import br.com.repository.PessoaRepository;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.*;
+
+import static java.sql.Date.valueOf;
+import static java.util.Date.*;
 
 @org.springframework.stereotype.Controller
 @RequestMapping("/pessoas/")
@@ -38,9 +41,8 @@ public class PessoaController {
     }
 
     @PostMapping("/add")
-    public String add(@Validated Pessoa pessoa, BindingResult result) throws Exception{
-
-
+    public String add(@Validated Pessoa pessoa, BindingResult result, HttpServletRequest request,
+                      HttpServletResponse response) throws Exception {
 
         if (result.hasErrors()) {
             return "redirect:cadastrar";
@@ -58,13 +60,14 @@ public class PessoaController {
 
     }
 
-    @PostMapping("/search_code")
-    public String getCountryCode(@RequestParam("country_code") String country_code, Model model, Pessoa pessoa) {
-        Optional<Pessoa> p = repo.findByCountryCode(country_code);
+    @PostMapping("/search_cpf")
+    public String getCountryCode(@RequestParam("cpf") String cpf, Model model, Pessoa pessoa) {
+        Optional<Pessoa> p = pessoaService.getCpf(cpf);
         if (p.isPresent()) {
             model.addAttribute("person", p.get());
+            return ("pesquisa");
         }
-        return ("pesquisa");
+        return ("inicio");
     }
 
     @GetMapping("edit/{id}")

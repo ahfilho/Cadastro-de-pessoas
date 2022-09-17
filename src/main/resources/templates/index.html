@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:schemaLocation="http://www.thymeleaf.org
+http://www.thymeleaf.org ">
 
 <head>
 <meta charset="UTF-8">
@@ -20,8 +21,6 @@
 	crossorigin="anonymous">
 <link type="text/css" rel="stylesheet" href="/css/main.css" />
 </head>
-<body>
-</head>
 
 <body>
 	<div class="flex-container">
@@ -36,7 +35,7 @@
 					<a class="navbar-brand" href="/pessoas/list">Listar todos</a>
 				</div>
 				<form class="form=inline" action="#"
-				th:action="@{/person/cpf}" method="post">
+				th:action="@{/pessoas/search_cpf}" method="post">
 				<br> <br> <label class="col-form-label"
 					style="text-align: center; color:white">Country code</label> <input
 					style="margin-left: 0%;" class="form-control" type="text"
@@ -47,5 +46,4 @@
 			</form>
 	</div>
 </body>
-
 </html>
