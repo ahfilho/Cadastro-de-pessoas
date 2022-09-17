@@ -27,6 +27,11 @@ public class PessoaService {
     public Optional<Pessoa> getCpf(String cpf) {
         return this.pessoaRepository.findByCpf(cpf);
     }
+    public Optional<Pessoa> update(Long id){
+        this.pessoaRepository.findById(id);
+
+        return this.pessoaRepository.findById(id);
+    }
 }
 
 

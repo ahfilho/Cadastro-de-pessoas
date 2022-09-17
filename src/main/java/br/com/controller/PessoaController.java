@@ -71,21 +71,19 @@ public class PessoaController {
     }
 
     @GetMapping("edit/{id}")
-    public String update(@PathVariable("id") Long id, Model model) {
-        Pessoa pessoa = this.repo.findById(id).orElseThrow(() -> new IllegalArgumentException("pessoa invalid" + id));
+    public String update(Model model, @PathVariable(name = "id") Long id) {
+        Pessoa pessoa = this.pessoaService.update(id).orElseThrow(() -> new IllegalArgumentException("pessoa invalid" + id));
+
         model.addAttribute("person", pessoa);
         return "update";
     }
 
-    @PostMapping("atualiz{id}")
-    public String atualiza(@PathVariable("id") Long id, @Validated Pessoa pessoa, BindingResult result, Model model) {
+    @PostMapping("atualiza/{id}")
+    public String atualiza(@Validated Pessoa pessoa, BindingResult result, @PathVariable Long id) {
         if (result.hasErrors()) {
-            pessoa.setId(id);
             return "update";
         }
-        this.repo.save(pessoa);
-        repo.save(pessoa);
-        model.addAttribute("person", this.repo.findAll());
+        pessoaService.adc(pessoa);
         return "list";
     }
 
