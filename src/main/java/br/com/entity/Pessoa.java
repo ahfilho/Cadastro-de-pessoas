@@ -10,6 +10,10 @@ import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,22 +22,29 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Pessoa {
 
+    //TODO validar e formatar cpf
+    //TODO consertar a captura da data
+    //TODO 	validação na interface
+    //TODO validação na API
+    //TODO validação no banco
 
-	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotNull
-	private String nome;
+    @NotNull
+    private String nome;
 
-	@NotNull
-	private String cpf;
+    @NotNull
+    @CPF
+    private String cpf;
 
-	//@NotNull
-	//private Date dataNascimento;
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dataNascimento;
 
-	@NotNull
-	private String email;
+    @NotNull
+    private String email;
 
 
 }
