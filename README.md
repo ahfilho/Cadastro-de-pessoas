@@ -1,4 +1,15 @@
 # API Java
 Cadastrar listar editar excluir
 
--OAUTH2 -JPA -BACKEND API REST -THYMELEAF -HTML -CSS -BOOTSTRAP -MYSQL -LOMBOK -SPRING SECURITY
+
+BACKEND API REST
+Java
+Spring boot
+Jpa
+Thymeleaf
+HTML
+CSS
+BOOTSTRAP
+MYSQL
+LOMBOK
+Javascript

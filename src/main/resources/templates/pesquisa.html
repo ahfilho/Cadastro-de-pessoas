@@ -22,8 +22,6 @@
     <link type="text/css" rel="stylesheet" href="/css/main.css"/>
 
 </head>
-<body>
-</head>
 
 <body>
 
@@ -59,7 +57,6 @@
                             <th>Cpf</th>
                             <th>E-mail</th>
                             <th>Nascimento</th>
-                            <th>year</th>
                         </tr>
                         </thead>
                         </tbody>
@@ -70,7 +67,7 @@
                             <td th:text="${pessoa.nome}"></td>
                             <td th:text="${pessoa.cpf}"></td>
                             <td th:text="${pessoa.email}"></td>
-                            <td th:date="${pessoa.dataNascimento}"></td>
+                            <td th:text="${pessoa.dataNascimento}"></td>
 
                             <td><a th:href="@{/pessoas/edit/{id}(id=${person.id})}"
                                    class="btn btn-outline-primary my-2 my-sm-0"><i
@@ -88,9 +85,7 @@
 </div>
 
 </body>
-
 </html>
-
 
 
 

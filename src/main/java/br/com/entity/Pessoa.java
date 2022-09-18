@@ -21,7 +21,10 @@ import java.time.LocalDate;
 @Table(name = "person")
 @Entity
 public class Pessoa {
-
+    //TODO- SPRING E MYSQL
+    //TODO API REST -- FEITO
+    //TODO -- DADOS PERSISTIDOS NO BANCO COM INTERFACE PARA CRUD  -- FEITO
+    //TODO -- A APLICAÇÃO CONFIGURA A BASE DE INICIALIZAÇÃO -- FEITO
     //TODO validar e formatar cpf  -- VALIDADO
     //TODO consertar a captura da data  --- FEITO
     //TODO 	validação na interface -- FEITO
