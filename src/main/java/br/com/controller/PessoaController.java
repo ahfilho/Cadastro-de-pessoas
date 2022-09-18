@@ -74,6 +74,10 @@ public class PessoaController {
     public String update(@PathVariable("id") Long id, Model model) {
         Pessoa pessoa = this.repo.findById(id).orElseThrow(() -> new IllegalArgumentException("pessoa invalid" + id));
         model.addAttribute("person", pessoa);
+        pessoa.getCpf();
+        System.out.println(pessoa.getNome());
+
+        System.out.println(pessoa.getCpf());
         return "update";
     }
 
