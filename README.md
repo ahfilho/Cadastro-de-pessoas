@@ -1,5 +1,5 @@
 # API Java
-Cadastrar listar editar excluir
+Cadastrar listar editar excluir pesquisar
 
 Tecnologias utilizadas:
 
