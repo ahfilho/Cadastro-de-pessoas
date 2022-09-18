@@ -54,7 +54,7 @@ public class PessoaController {
     @GetMapping("/list")
     public String listarTodos(Model model) {
         List<Pessoa> pesssoaList = pessoaService.listarTodos();
-        model.addAttribute("person", this.repo.findAll());
+        model.addAttribute("person", this.pessoaService.listarTodos());
         ResponseEntity.ok().body("TESTANDO FUNÇÃO");
         return "list";
 
@@ -72,7 +72,7 @@ public class PessoaController {
 
     @GetMapping("edit/{id}")
     public String update(Model model, @PathVariable(name = "id") Long id) {
-        Pessoa pessoa = this.pessoaService.update(id).orElseThrow(() -> new IllegalArgumentException("pessoa invalid" + id));
+        Pessoa pessoa = this.pessoaService.edit(id).orElseThrow(() -> new IllegalArgumentException("pessoa invalid" + id));
 
         model.addAttribute("person", pessoa);
         pessoa.getCpf();
@@ -96,7 +96,7 @@ public class PessoaController {
         Pessoa pessoa = this.repo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("teste deleta" + id));
         this.repo.delete(pessoa);
-        model.addAttribute("person", this.repo.findAll());
+        model.addAttribute("person", this.pessoaService.listarTodos());
         return "list";
     }
 }
