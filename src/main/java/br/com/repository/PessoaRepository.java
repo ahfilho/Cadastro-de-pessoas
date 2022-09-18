@@ -13,7 +13,7 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 //	public Optional<Pessoa> findByCountryCode(String country_code);
 
 
-	@Query("select p from Pessoa p where p.cpf like %?1% group by Pessoas")
+		@Query("select p from Pessoa p where p.cpf = ?1")
 	public Optional<Pessoa> findByCpf(String cpf);
 
 
