@@ -42,12 +42,14 @@ public class PessoaController {
 
     @PostMapping("/add")
     public String add(@Validated Pessoa pessoa, BindingResult result, HttpServletRequest request,
-                      HttpServletResponse response) throws Exception {
+                      HttpServletResponse response, Model model) throws Exception {
 
         if (result.hasErrors()) {
+            model.addAttribute("mensagem", "Verifique os campos.");
             return "redirect:cadastrar";
         }
         pessoaService.adc(pessoa);
+        model.addAttribute("mensagem", "Salvo com sucesso");
         return "redirect:list";
     }
 
