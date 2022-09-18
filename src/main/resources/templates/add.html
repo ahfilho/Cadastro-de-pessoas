@@ -47,8 +47,9 @@ http://www.thymeleaf.org ">
             </div>
             <br>
             <div class="form-group col-md-5">
-                <label for="cpf" class="col-form-label">Cpf</label> <br> <input onblur="validarCPF(this" maxlength="11"
-                    class="form-control" type="text" name="cpf" required id="cpf"
+                <label for="cpf" class="col-form-label">Cpf</label> <br>
+                <input onblur="validarCPF(this)" maxlength="14"
+                    class="form-control" type="text" name="cpf" required id="cpf" onkeydown="javascript: fMasc( this, mCPF );"
                     placeholder="Cpf (apenas números)">
             </div>
             <div class="form-group col-md-5">
@@ -68,8 +69,60 @@ http://www.thymeleaf.org ">
 
     </form>
 </div>
-
 <script type="text/javascript">
+			function fMasc(objeto,mascara) {
+				obj=objeto
+				masc=mascara
+				setTimeout("fMascEx()",1)
+			}
+			function fMascEx() {
+				obj.value=masc(obj.value)
+			}
+			function mTel(tel) {
+				tel=tel.replace(/\D/g,"")
+				tel=tel.replace(/^(\d)/,"($1")
+				tel=tel.replace(/(.{3})(\d)/,"$1)$2")
+				if(tel.length == 9) {
+					tel=tel.replace(/(.{1})$/,"-$1")
+				} else if (tel.length == 10) {
+					tel=tel.replace(/(.{2})$/,"-$1")
+				} else if (tel.length == 11) {
+					tel=tel.replace(/(.{3})$/,"-$1")
+				} else if (tel.length == 12) {
+					tel=tel.replace(/(.{4})$/,"-$1")
+				} else if (tel.length > 12) {
+					tel=tel.replace(/(.{4})$/,"-$1")
+				}
+				return tel;
+			}
+			function mCNPJ(cnpj){
+				cnpj=cnpj.replace(/\D/g,"")
+				cnpj=cnpj.replace(/^(\d{2})(\d)/,"$1.$2")
+				cnpj=cnpj.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+				cnpj=cnpj.replace(/\.(\d{3})(\d)/,".$1/$2")
+				cnpj=cnpj.replace(/(\d{4})(\d)/,"$1-$2")
+				return cnpj
+			}
+			function mCPF(cpf){
+				cpf=cpf.replace(/\D/g,"")
+				cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+				cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+				cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+				return cpf
+			}
+			function mCEP(cep){
+				cep=cep.replace(/\D/g,"")
+				cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
+				cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
+				return cep
+			}
+			function mNum(num){
+				num=num.replace(/\D/g,"")
+				return num
+			}
+		</script>
+<script type="text/javascript" src="msin.js">
+
 		$(function() {
 			$("#datepicker").datepicker({
 				dateFormat : 'yy',
@@ -77,6 +130,7 @@ http://www.thymeleaf.org ">
 				changeMonth : false
 			});
 		});
+
 		$(function _cpf(cpf) {
     cpf = cpf.replace(/[^\d]+/g, '');
     if (cpf == '') return false;

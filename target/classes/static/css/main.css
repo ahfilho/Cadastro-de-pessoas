@@ -10,8 +10,12 @@
 
 body {
 	background-color: #00030d;
-	text-align: center;
-}
+display: flex;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  }
 .teste{
 }
 .table{
