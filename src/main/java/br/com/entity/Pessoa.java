@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -21,25 +23,29 @@ import java.time.LocalDate;
 @Table(name = "person")
 @Entity
 public class Pessoa {
-    //TODO- SPRING E MYSQL
-    //TODO API REST -- FEITO
-    //TODO -- DADOS PERSISTIDOS NO BANCO COM INTERFACE PARA CRUD  -- FEITO
-    //TODO -- A APLICAÇÃO CONFIGURA A BASE DE INICIALIZAÇÃO -- FEITO
-    //TODO validar e formatar cpf  -- VALIDADO
-    //TODO consertar a captura da data  --- FEITO
-    //TODO 	validação na interface -- FEITO
-    //TODO validação na API
-    //TODO validação no banco
+    //TODO- SPRING E MYSQL - OK
+    //TODO API REST - OK
+    //TODO -- DADOS PERSISTIDOS NO BANCO COM INTERFACE PARA CRUD  -- OK
+    //TODO -- A APLICAÇÃO CONFIGURA A BASE DE INICIALIZAÇÃO -- FEITO -- falta só ver o banco - para a API usei @NotNUll
+    //TODO validar e formatar cpf  -- OK
+    //TODO consertar a captura da data  --- OK
+    //TODO 	validação na interface -- OK
+    //TODO validação na API -- OK
+    //TODO validação no banco  -- FALTA
+
+    //Bean validation, thymeleaf, spring boot, mysql, html, css, java, javascript
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
+    @NotBlank(message = "Nome é obrigatório")
     private String nome;
 
     @NotNull
     @CPF
+    @NotBlank(message = "Cpf é obrigatório")
     private String cpf;
 
     @NotNull
@@ -47,6 +53,7 @@ public class Pessoa {
     private LocalDate dataNascimento;
 
     @NotNull
+    @NotBlank(message = "E-mail é obrigatório")
     private String email;
 
 
