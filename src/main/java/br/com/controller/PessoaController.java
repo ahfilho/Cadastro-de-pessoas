@@ -75,6 +75,10 @@ public class PessoaController {
         Pessoa pessoa = this.pessoaService.update(id).orElseThrow(() -> new IllegalArgumentException("pessoa invalid" + id));
 
         model.addAttribute("person", pessoa);
+        pessoa.getCpf();
+        System.out.println(pessoa.getNome());
+
+        System.out.println(pessoa.getCpf());
         return "update";
     }
 

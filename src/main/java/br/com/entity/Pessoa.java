@@ -22,9 +22,9 @@ import java.time.LocalDate;
 @Entity
 public class Pessoa {
 
-    //TODO validar e formatar cpf
-    //TODO consertar a captura da data
-    //TODO 	validação na interface
+    //TODO validar e formatar cpf  -- VALIDADO
+    //TODO consertar a captura da data  --- FEITO
+    //TODO 	validação na interface -- FEITO
     //TODO validação na API
     //TODO validação no banco
 
