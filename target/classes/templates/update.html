@@ -41,28 +41,28 @@ http://www.thymeleaf.org ">
           method="post">
         <!--  person é o nome da ENTIDADE  -->
         <div class="row">
-            <div class="form-group col-md-5">
+            <div class="col-md-4 mb-3">
                 <label for="nome" class="col-form-label">Nome</label> <br> <input
-                    class="form-control" type="text" name="nome" required id="nome"
+                    class="form-control" type="text" name="nome"  th:field="*{nome}" required id="nome"
                     placeholder="Nome">
             </div>
             <br>
-            <div class="form-group col-md-5">
+            <div class="col-md-4 mb-3">
                 <label for="cpf" class="col-form-label">CPF</label> <br> <input onblur="validarCPF(this)" maxlength="14"
                                                                                 onkeydown="javascript: fMasc( this, mCPF );"
                                                                                 class="form-control" type="text"
-                                                                                name="cpf" required id="cpf"
+                                                                                name="cpf" th:field="*{cpf}" required id="cpf"
                                                                                 placeholder="Cpf (apenas números)">
             </div>
-            <div class="form-group col-md-5">
+            <div class="col-md-4 mb-3">
                 <label for="email" class="col-form-label">E-mail</label> <br> <input
-                    class="form-control" type="text" name="email" required id="email"
+                    class="form-control" type="text" name="email" th:field="*{email}" required id="email"
                     placeholder="E-mail">
             </div>
 
-            <div class="form-group col-md-5">
+            <div class="col-md-4 mb-3">
                 <label for="dataNascimento" class="col-form-label">Data de nascimento</label> <br> <input
-                    class="form-control" type="date" name="dataNascimento" required id="dataNascimento"
+                    class="form-control" type="date" name="dataNascimento"  th:field="*{dataNascimento}"required id="dataNascimento"
                     placeholder="Nascimento">
             </div>
         </div>

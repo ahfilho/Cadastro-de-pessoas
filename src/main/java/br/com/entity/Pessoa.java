@@ -26,14 +26,11 @@ public class Pessoa {
     //TODO- SPRING E MYSQL - OK
     //TODO API REST - OK
     //TODO -- DADOS PERSISTIDOS NO BANCO COM INTERFACE PARA CRUD  -- OK
-    //TODO -- A APLICAÇÃO CONFIGURA A BASE DE INICIALIZAÇÃO -- FEITO -- falta só ver o banco - para a API usei @NotNUll
+    //TODO -- A APLICAÇÃO CONFIGURA A BASE DE INICIALIZAÇÃO -- OK
     //TODO validar e formatar cpf  -- OK
-    //TODO consertar a captura da data  --- OK
     //TODO 	validação na interface -- OK
     //TODO validação na API -- OK
-    //TODO validação no banco  -- FALTA
-
-    //Bean validation, thymeleaf, spring boot, mysql, html, css, java, javascript
+    //TODO validação no banco  -- OK
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
