@@ -42,7 +42,7 @@ Se não tiver, dê uma olhada nesse artigo que ensina o passo a passo de como fa
 ## Criando container com MySQL Server
 
 Para criar um container com o MySQL:
-<h4 1 - docker run -p 3306:3306 --name=seu-container -d mysql/mysql-server</h4>
+<h4> docker run -p 3306:3306 --name=seu-container -d mysql/mysql-server</h4>
 
  Esse comando roda um container chamado “seu-container” a partir de uma imagem
  do MySQL Server e mapeia a porta 3306 do container com a sua de mesmo número.
