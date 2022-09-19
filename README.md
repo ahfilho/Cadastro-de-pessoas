@@ -1,4 +1,4 @@
-# API Java 
+# Api Java 
 <h3 align="center"> Cadastro de pessoas </h3>
 
 Cadastrar uma pessoa com: nome, cpf, data de nascimento, email.
@@ -12,16 +12,16 @@ Cadastrar uma pessoa com: nome, cpf, data de nascimento, email.
 
 Tecnologias utilizadas:
 
-API REST, 
+Api rest, 
 Java 8, 
-Spring boot, validation, security
+Spring (boot, validation, security(
 Jpa, 
 Thymeleaf, 
-HTML, 
-CSS, 
-BOOTSTRAP, 
-MYSQL, 
-LOMBOK, 
+Html, 
+Css, 
+Bootstrap, 
+Mysql, 
+Lombok, 
 Javascript, 
 Docker
 
