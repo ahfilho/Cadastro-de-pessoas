@@ -1,7 +1,6 @@
 package br.com.controller;
 
 import br.com.entity.Pessoa;
-import br.com.repository.PessoaRepository;
 import br.com.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,16 +11,17 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 import static java.sql.Date.valueOf;
+import static java.util.Date.*;
 
 @org.springframework.stereotype.Controller
 @RequestMapping("/pessoas/")
 public class PessoaController {
-
-    @Autowired
-    private PessoaRepository repo;
 
     @Autowired
     private PessoaService pessoaService;
@@ -44,7 +44,7 @@ public class PessoaController {
             model.addAttribute("mensagem", "Verifique os campos.");
             return "redirect:cadastrar";
         }
-        pessoaService.salvarPessoa(pessoa);
+        pessoaService.adc(pessoa);
         model.addAttribute("mensagem", "Salvo com sucesso");
         return "redirect:list";
     }
@@ -85,15 +85,13 @@ public class PessoaController {
         if (result.hasErrors()) {
             return "update";
         }
-        pessoaService.salvarPessoa(pessoa);
+        pessoaService.adc(pessoa);
         return "list";
     }
 
     @GetMapping("del/{id}")
-    public String deleta(@PathVariable("id") Long id, Model model) {
-        Pessoa pessoa = this.repo.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("teste deleta" + id));
-        this.repo.delete(pessoa);
+    public String deleta(@PathVariable("id") Long id, Model model) throws Exception {
+        pessoaService.deleta(id);
         model.addAttribute("person", this.pessoaService.listarTodos());
         return "list";
     }

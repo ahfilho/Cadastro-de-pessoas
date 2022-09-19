@@ -12,8 +12,6 @@ U
 mvnw,5/d/5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d
 b
 2src/test/java/br/com/CadastroApplicationTests.java,4/0/40cb8da96bda679bc6ecf10a69afb2a7e337082e
-e
-5src/main/java/br/com/repository/PessoaRepository.java,4/8/485f867d8bc7ae4d2285fbd4791231773ee29be0
 \
 ,.idea/inspectionProfiles/Project_Default.xml,4/9/496a238a6afa168dbaf6efd37bb459331589579c
 9

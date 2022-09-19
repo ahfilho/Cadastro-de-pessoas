@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 
 @Service
@@ -16,7 +17,7 @@ public class PessoaService {
     private PessoaRepository pessoaRepository;
 
 
-    public void salvarPessoa(Pessoa pessoa) {
+    public void adc(Pessoa pessoa) {
         this.pessoaRepository.save(pessoa);
     }
 
@@ -27,15 +28,25 @@ public class PessoaService {
     public Optional<Pessoa> getCpf(String cpf) {
         return this.pessoaRepository.findByCpf(cpf);
     }
-    public Optional<Pessoa> edit(Long id){
+
+    public Optional<Pessoa> edit(Long id) {
         this.pessoaRepository.findById(id);
 
         return this.pessoaRepository.findById(id);
     }
-    public void deleta(Long id, Pessoa pessoa){
-        this.pessoaRepository.findById(id);
+
+    public void deleta(Long id) throws Exception {
+        Optional<Pessoa> pessoa = pessoaRepository.findById(id);
+        if (pessoa.isPresent()) {
+            pessoaRepository.delete(pessoa.get());
+        } else {
+            throw new Exception("ERRO AO DELETAR O ID" + id);
+
+        }
+
     }
-    public void findById(Long id){
+
+    public void findById(Long id) {
         this.pessoaRepository.findById(id);
     }
 
