@@ -12,13 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.*;
 
 import static java.sql.Date.valueOf;
-import static java.util.Date.*;
 
 @org.springframework.stereotype.Controller
 @RequestMapping("/pessoas/")
@@ -48,7 +44,7 @@ public class PessoaController {
             model.addAttribute("mensagem", "Verifique os campos.");
             return "redirect:cadastrar";
         }
-        pessoaService.adc(pessoa);
+        pessoaService.salvarPessoa(pessoa);
         model.addAttribute("mensagem", "Salvo com sucesso");
         return "redirect:list";
     }
@@ -89,7 +85,7 @@ public class PessoaController {
         if (result.hasErrors()) {
             return "update";
         }
-        pessoaService.adc(pessoa);
+        pessoaService.salvarPessoa(pessoa);
         return "list";
     }
 
