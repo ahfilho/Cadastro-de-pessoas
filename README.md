@@ -14,7 +14,7 @@ Tecnologias utilizadas:
 
 API REST, 
 Java 8, 
-Spring boot, validation
+Spring boot, validation, security
 Jpa, 
 Thymeleaf, 
 HTML, 
@@ -25,9 +25,8 @@ LOMBOK,
 Javascript, 
 Docker
 
-Programas utilizados:
-
-Intellij e Dbeaver.
+IDE utilizado: Intellij
+Para acessar o banco: Dbeaver.
 
 
 - Validação e formatação do cpf
@@ -72,5 +71,6 @@ vá até "application.properties" e só configure a porta 3306 e o nome do banco
 
 A mesma coisa se for utilizar o Dbeaver. Crie uma nova conexão com o banco escolhido, insira seu usuario, senha, porta e nome do banco.
 
-Depois de tudo isso, execute o projeto no Intellij e acessse o endereço local: http://localhost:8080/pessoas/inicio
-
+Depois de tudo isso, execute o projeto no Intellij e acessse o endereço local: http://localhost:8080/login
+Insira usuário padrão (user) e o password gerado pelo spring security que saiu no console da sua IDE.
+Você agora está dentro da aplicação e pode usar. :-)
