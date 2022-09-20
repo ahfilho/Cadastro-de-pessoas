@@ -16,3 +16,5 @@ b
 ,.idea/inspectionProfiles/Project_Default.xml,4/9/496a238a6afa168dbaf6efd37bb459331589579c
 9
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+e
+5src/main/java/br/com/repository/PessoaRepository.java,4/8/485f867d8bc7ae4d2285fbd4791231773ee29be0

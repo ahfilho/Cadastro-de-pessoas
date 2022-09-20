@@ -52,6 +52,9 @@ public class PessoaController {
     @GetMapping("/list")
     public String listarTodos(Model model) {
         List<Pessoa> pesssoaList = pessoaService.listarTodos();
+        if(pesssoaList.isEmpty()){
+            return "erro";
+        }
         model.addAttribute("person", this.pessoaService.listarTodos());
         ResponseEntity.ok().body("TESTANDO FUNÇÃO");
         return "list";
@@ -61,6 +64,9 @@ public class PessoaController {
     @PostMapping("/search_cpf")
     public String getCountryCode(@RequestParam("cpf") String cpf, Model model, Pessoa pessoa) {
         Optional<Pessoa> p = pessoaService.getCpf(cpf);
+        if(!p.isPresent()){
+            return "erro";
+        }
         if (p.isPresent()) {
             model.addAttribute("person", p.get());
             return ("pesquisa");
