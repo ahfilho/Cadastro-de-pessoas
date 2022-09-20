@@ -49,11 +49,11 @@ http://www.thymeleaf.org ">
             </div>
             <br>
             <div class="col-md-4 mb-3">
-                <label for="cpf" class="col-form-label">Cpf</label> <br>
+                <label for="cpf" class="col-form-label">Cpf (apenas números)</label> <br>
                 <input onblur="validarCPF(this)" maxlength="14"
                        class="form-control" type="text" name="cpf" required id="cpf"
                        onkeydown="javascript: fMasc( this, mCPF );"
-                       placeholder="Cpf (apenas números)">
+                       placeholder="Cpf (ex: 000.000.000-00)">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="email" class="col-form-label">E-mail</label> <br> <input
