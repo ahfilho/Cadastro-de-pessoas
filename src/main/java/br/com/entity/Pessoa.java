@@ -32,6 +32,10 @@ public class Pessoa {
     //TODO validação na API -- OK
     //TODO validação no banco  -- OK
 
+
+
+    //TODO autenticação: http://localhost:8080/login/oauth2
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
