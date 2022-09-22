@@ -39,11 +39,7 @@ public class PessoaService {
         Optional<Pessoa> pessoa = pessoaRepository.findById(id);
         if (pessoa.isPresent()) {
             pessoaRepository.delete(pessoa.get());
-        } else {
-            throw new Exception("ERRO AO DELETAR O ID" + id);
-
         }
-
     }
 
     public void findById(Long id) {
