@@ -39,7 +39,7 @@ public class PessoaController {
     @PostMapping("/add")
     public String add(@Validated Pessoa pessoa, BindingResult result, HttpServletRequest request,
                       HttpServletResponse response, Model model) throws Exception {
-
+        //TODO VERIFICAR SE JA EXISTE O CPF SALVO NO BANCO. SE SIM, exibir um alerta
         if (result.hasErrors()) {
             model.addAttribute("mensagem", "Verifique os campos.");
             return "redirect:cadastrar";
@@ -49,10 +49,11 @@ public class PessoaController {
         return "redirect:list";
     }
 
+
     @GetMapping("/list")
     public String listarTodos(Model model) {
         List<Pessoa> pesssoaList = pessoaService.listarTodos();
-        if(pesssoaList.isEmpty()){
+        if (pesssoaList.isEmpty()) {
             return "erro";
         }
         model.addAttribute("person", this.pessoaService.listarTodos());
@@ -64,7 +65,8 @@ public class PessoaController {
     @PostMapping("/search_cpf")
     public String getCountryCode(@RequestParam("cpf") String cpf, Model model, Pessoa pessoa) {
         Optional<Pessoa> p = pessoaService.getCpf(cpf);
-        if(!p.isPresent()){
+        //TODO VERIFICAR SE EXISTE CPF DUPLICADO -- NAO PODE
+        if (!p.isPresent()) {
             return "erro";
         }
         if (p.isPresent()) {
@@ -87,17 +89,29 @@ public class PessoaController {
     }
 
     @PostMapping("atualiza/{id}")
-    public String atualiza(@Validated Pessoa pessoa, BindingResult result, @PathVariable Long id) {
+    public String atualiza(@Validated Pessoa pessoa, BindingResult result, @PathVariable Long id, Model model) {
         if (result.hasErrors()) {
+            model.addAttribute("person", "Erro em algum campo.");
             return "update";
         }
         pessoaService.adc(pessoa);
+
+        List<Pessoa> pesssoaList = pessoaService.listarTodos();
+        if (pesssoaList.isEmpty()) {
+            return "erro";
+        }
+        model.addAttribute("person", this.pessoaService.listarTodos());
+        ResponseEntity.ok().body("TESTANDO FUNÇÃO");
         return "list";
     }
 
     @GetMapping("del/{id}")
     public String deleta(@PathVariable("id") Long id, Model model) throws Exception {
         pessoaService.deleta(id);
+        List<Pessoa> pesssoaList = pessoaService.listarTodos();
+        if (pesssoaList.isEmpty()) {
+            return "erro";
+        }
         model.addAttribute("person", this.pessoaService.listarTodos());
         return "list";
     }

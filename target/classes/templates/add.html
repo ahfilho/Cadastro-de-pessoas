@@ -33,9 +33,8 @@ http://www.thymeleaf.org ">
         Cadastro de Pessoas</h4>
     <br> <br>
     <div class="card-body">
-        <a href="/pessoas/inicio">Início</a>
-        <a class="navbar-brand" href="/pessoas/cadastrar">Novo</a> <a
-            class="navbar-brand" href="/pessoas/list">Listar todos</a>
+        <a class="navbar-brand" href="/pessoas/inicio">Início</a>
+        <a class="navbar-brand" href="/pessoas/list">Listar todos</a>
 
     </div>
     <form action="#" th:action="@{/pessoas/add}"
@@ -49,11 +48,11 @@ http://www.thymeleaf.org ">
             </div>
             <br>
             <div class="col-md-4 mb-3">
-                <label for="cpf" class="col-form-label">Cpf</label> <br>
+                <label for="cpf" class="col-form-label">Cpf (apenas números)</label> <br>
                 <input onblur="validarCPF(this)" maxlength="14"
                        class="form-control" type="text" name="cpf" required id="cpf"
                        onkeydown="javascript: fMasc( this, mCPF );"
-                       placeholder="Cpf (apenas números)">
+                       placeholder="Cpf (ex: 000.000.000-00)">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="email" class="col-form-label">E-mail</label> <br> <input
