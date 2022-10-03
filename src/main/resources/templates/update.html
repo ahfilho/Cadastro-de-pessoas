@@ -44,8 +44,12 @@ http://www.thymeleaf.org ">
         <!--  person é o nome da ENTIDADE  -->
         <div class="row">
             <div class="col-md-4 mb-3">
+                <label for="nome" class="col-form-label">Id</label> <br> <input
+                    class="form-control" type="text" name="id" th:field="*{id}"  id="id" disabled="disabled">
+            </div>
+            <div class="col-md-4 mb-3">
                 <label for="nome" class="col-form-label">Nome</label> <br> <input
-                    class="form-control" type="text" name="nome"  th:field="*{nome}" required id="nome"
+                    class="form-control" type="text" name="nome" th:field="*{nome}" required id="nome"
                     placeholder="Nome">
             </div>
             <br>
@@ -53,7 +57,8 @@ http://www.thymeleaf.org ">
                 <label for="cpf" class="col-form-label">CPF</label> <br> <input onblur="validarCPF(this)" maxlength="14"
                                                                                 onkeydown="javascript: fMasc( this, mCPF );"
                                                                                 class="form-control" type="text"
-                                                                                name="cpf" th:field="*{cpf}" required id="cpf"
+                                                                                name="cpf" th:field="*{cpf}" required
+                                                                                id="cpf"
                                                                                 placeholder="Cpf (apenas números)">
             </div>
             <div class="col-md-4 mb-3">
@@ -64,7 +69,8 @@ http://www.thymeleaf.org ">
 
             <div class="col-md-4 mb-3">
                 <label for="dataNascimento" class="col-form-label">Data de nascimento</label> <br> <input
-                    class="form-control" type="date" name="dataNascimento"  th:field="*{dataNascimento}"required id="dataNascimento"
+                    class="form-control" type="date" name="dataNascimento" th:field="*{dataNascimento}" required
+                    id="dataNascimento"
                     placeholder="Nascimento">
             </div>
         </div>
@@ -124,6 +130,7 @@ function mNum(num){
 num=num.replace(/\D/g,"")
 return num
 }
+
 
 </script>
 </body>

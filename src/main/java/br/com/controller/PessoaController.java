@@ -3,7 +3,9 @@ package br.com.controller;
 import br.com.entity.Pessoa;
 import br.com.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -38,8 +40,16 @@ public class PessoaController {
 
     @PostMapping("/add")
     public String add(@Validated Pessoa pessoa, BindingResult result, HttpServletRequest request,
-                      HttpServletResponse response, Model model) throws Exception {
+                      HttpServletResponse response, Model model, String cpf) throws Exception {
         //TODO VERIFICAR SE JA EXISTE O CPF SALVO NO BANCO. SE SIM, exibir um alerta
+        int a = pessoaService.test(cpf);
+        if (a > 1) {
+            System.out.println("este cpf já existe no banco");
+            return "redirect:cadastrar";
+//            return "redirect:cadastrar"+ResponseEntity.status(HttpStatus.BAD_REQUEST).body(String.format(("Este CPF já foi cadastrado."))+pessoa.getNome()+pessoa.getCpf());
+
+        }
+
         if (result.hasErrors()) {
             model.addAttribute("mensagem", "Verifique os campos.");
             return "redirect:cadastrar";
@@ -64,6 +74,12 @@ public class PessoaController {
 
     @PostMapping("/search_cpf")
     public String getCountryCode(@RequestParam("cpf") String cpf, Model model, Pessoa pessoa) {
+        int a = pessoaService.test(cpf);
+        if (a > 1) {
+            System.out.println("este cpf já existe no banco");
+            return "redirect:inicio";
+//            return "redirect:cadastrar"+ResponseEntity.status(HttpStatus.BAD_REQUEST).body(String.format(("Este CPF já foi cadastrado."))+pessoa.getNome()+pessoa.getCpf());
+        }
         Optional<Pessoa> p = pessoaService.getCpf(cpf);
         //TODO VERIFICAR SE EXISTE CPF DUPLICADO -- NAO PODE
         if (!p.isPresent()) {

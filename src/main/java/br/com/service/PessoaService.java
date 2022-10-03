@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 
 @Service
@@ -29,6 +28,13 @@ public class PessoaService {
         return this.pessoaRepository.findByCpf(cpf);
     }
 
+    public int test(String cpf) {
+        List<Pessoa> pe = null;
+        pe = pessoaRepository.findCpf(cpf);
+        System.out.println(pe);
+        return pe.size();
+    }
+
     public Optional<Pessoa> edit(Long id) {
         this.pessoaRepository.findById(id);
 
@@ -42,10 +48,10 @@ public class PessoaService {
         }
     }
 
-    public void findById(Long id) {
-        this.pessoaRepository.findById(id);
+    public String teste(String cpf) {
+        String p = pessoaRepository.verificaCpfAntesDeSalvar(cpf);
+        return p;
     }
-
 }
 
 
