@@ -41,13 +41,10 @@ public class PessoaController {
     @PostMapping("/add")
     public String add(@Validated Pessoa pessoa, BindingResult result, HttpServletRequest request,
                       HttpServletResponse response, Model model, String cpf) throws Exception {
-        //TODO VERIFICAR SE JA EXISTE O CPF SALVO NO BANCO. SE SIM, exibir um alerta
         int a = pessoaService.test(cpf);
-        if (a > 1) {
+        if (a == 1) {
             System.out.println("este cpf já existe no banco");
             return "redirect:cadastrar";
-//            return "redirect:cadastrar"+ResponseEntity.status(HttpStatus.BAD_REQUEST).body(String.format(("Este CPF já foi cadastrado."))+pessoa.getNome()+pessoa.getCpf());
-
         }
 
         if (result.hasErrors()) {
@@ -58,7 +55,6 @@ public class PessoaController {
         model.addAttribute("mensagem", "Salvo com sucesso");
         return "redirect:list";
     }
-
 
     @GetMapping("/list")
     public String listarTodos(Model model) {
@@ -74,14 +70,7 @@ public class PessoaController {
 
     @PostMapping("/search_cpf")
     public String getCountryCode(@RequestParam("cpf") String cpf, Model model, Pessoa pessoa) {
-        int a = pessoaService.test(cpf);
-        if (a > 1) {
-            System.out.println("este cpf já existe no banco");
-            return "redirect:inicio";
-//            return "redirect:cadastrar"+ResponseEntity.status(HttpStatus.BAD_REQUEST).body(String.format(("Este CPF já foi cadastrado."))+pessoa.getNome()+pessoa.getCpf());
-        }
         Optional<Pessoa> p = pessoaService.getCpf(cpf);
-        //TODO VERIFICAR SE EXISTE CPF DUPLICADO -- NAO PODE
         if (!p.isPresent()) {
             return "erro";
         }
@@ -95,12 +84,8 @@ public class PessoaController {
     @GetMapping("edit/{id}")
     public String update(Model model, @PathVariable(name = "id") Long id) {
         Pessoa pessoa = this.pessoaService.edit(id).orElseThrow(() -> new IllegalArgumentException("pessoa invalid" + id));
-
         model.addAttribute("person", pessoa);
         pessoa.getCpf();
-        System.out.println(pessoa.getNome());
-
-        System.out.println(pessoa.getCpf());
         return "update";
     }
 

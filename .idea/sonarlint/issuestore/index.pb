@@ -18,3 +18,5 @@ b
 +src/main/java/br/com/PessoaApplication.java,a/c/ac407bc5dffa00b759e524c99bd86b3401deabe4
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+\
+,.idea/inspectionProfiles/Project_Default.xml,4/9/496a238a6afa168dbaf6efd37bb459331589579c
