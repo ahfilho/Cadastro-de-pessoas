@@ -33,8 +33,9 @@ http://www.thymeleaf.org ">
 
 			<br>
 				<div class="card-body">
-					<a class="navbar-brand" href="/pessoas/cadastrar">Novo</a>
-					<a class="navbar-brand" href="/pessoas/list">Listar todos</a>
+
+					<a class="btn btn-outline-success my-2 my-sm-0" href="/pessoas/cadastrar">Novo</a>
+                    <a class="btn btn-outline-info my-2 my-sm-0" href="/pessoas/list">Listar todos</a>
 				</div>
 				<form class="form=inline" action="#"
 				th:action="@{/pessoas/search_cpf}" method="post">
@@ -43,7 +44,7 @@ http://www.thymeleaf.org ">
 					style="margin-left: 0%;" class="form-control" type="text"
 					name="cpf" required id="cpf" onkeydown="javascript: fMasc( this, mCPF );"
 					placeholder="cpf(informe todos os números)"><br> <input
-					type="submit" class="btn btn-outline-primary my-2 my-sm-0"
+					type="submit" class="btn btn-outline-warning my-2 my-sm-0"
 					value="Pesquisar" placeholder="cpf" style="text-align: center;">
 			</form>
 	</div>
