@@ -31,7 +31,6 @@ public class PessoaService {
     public int test(String cpf) {
         List<Pessoa> pe = null;
         pe = pessoaRepository.findCpf(cpf);
-        System.out.println(pe);
         return pe.size();
     }
 

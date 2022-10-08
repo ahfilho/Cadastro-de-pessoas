@@ -30,10 +30,8 @@
     <h4 style="text-align: center; font-size: 25px; margin-top: 3%;">
         Pessoas cadastradas</h4>
     <h5 style="text-align: center; font-size: 20px; margin-top: 3%;">
-
-
-        <a href="/pessoas/inicio">Início</a>
-        <a class="navbar-brand" href="/pessoas/cadastrar">Novo</a>
+        <a class="btn btn-outline-primary my-2 my-sm-0" href="/pessoas/inicio">Início</a>
+        <a class="btn btn-outline-success my-2 my-sm-0" href="/pessoas/cadastrar">Novo</a>
 
     </h5>
 
@@ -72,10 +70,10 @@
                             <td th:text="${pessoa.dataNascimento}"></td>
 
                             <td><a th:href="@{/pessoas/edit/{id}(id=${pessoa.id})}"
-                                   class="btn btn-outline-primary my-2 my-sm-0"><i
+                                   class="btn btn-outline-warning my-2 my-sm-0"><i
                                     class="fa fa-edit"></i></a></td>
                             <td><a th:href="@{/pessoas/del/{id}(id=${pessoa.id})}"
-                                   class="btn btn-outline-primary my-2 my-sm-0"><i
+                                   class="btn btn-outline-danger my-2 my-sm-0"><i
                                     class="fa fa-trash"></i></a></td>
                         </tr>
 
